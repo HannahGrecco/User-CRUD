@@ -4,7 +4,14 @@
 
 @section("content")
 
-    <div>
+    @auth
+      <p>Congrats, youre login</p>
+      <form action="/logout" method="POST">
+            @csrf
+            <button>Log out</button>
+    </form>
+    @else
+     <div>
         <h1>Register</h1>
         <form action="/register" method="POST">
             @csrf
@@ -14,3 +21,15 @@
             <button type="submit">Submit</button>
         </form>
     </div>
+    <div>
+        <h1>Log-in</h1>
+        <form action="/login" method="POST">
+            @csrf
+            <input name='loginname' type="text" placeholder="Name">
+            <input name='loginpassword' type="password" placeholder="Password">
+            <button type="submit">Login</button>
+        </form>
+    </div>
+    @endauth
+
+   
