@@ -5,11 +5,34 @@
 @section("content")
 
     @auth
-      <p>Congrats, youre login</p>
-      <form action="/logout" method="POST">
+    <p>Congrats, youre login</p>
+    <form action="/logout" method="POST">
             @csrf
             <button>Log out</button>
     </form>
+
+    <div>
+        <h2>Create a new post</h2>
+        <form action="/create-post" method="POST">
+            @csrf
+            <input type="text" name='title' placeholder='Post title'>
+            <textarea name="body" placeholder="body content"></textarea>
+            <button type="submit">Save Post</button>
+        
+        </form>
+    </div>
+
+
+    <div class="bg-blue-200" >
+        <h2>All posts</h2>
+        @foreach ($posts as $post)
+            <div>
+                <h3>{{ $post->title }}</h3>
+                <p>{{ $post->body }}</p>
+            </div>
+        @endforeach
+    </div>
+
     @else
      <div>
         <h1>Register</h1>

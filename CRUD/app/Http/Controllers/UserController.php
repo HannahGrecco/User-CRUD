@@ -17,9 +17,6 @@ class UserController extends Controller
 
        if (auth()->attempt(['name' => $incomingFields['loginname'], 'password' => $incomingFields['loginpassword']])){
            $request->session()->regenerate();
-       } else {
-           return redirect('/')->with('error', 'Invalid login details');
-
        }
 
        return redirect('/');
