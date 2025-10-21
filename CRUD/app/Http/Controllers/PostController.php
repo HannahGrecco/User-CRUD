@@ -19,6 +19,7 @@ class PostController extends Controller
         Post::create($incomingFields);
 
         return redirect()->back();
+        
     }
     
 }
