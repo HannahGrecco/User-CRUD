@@ -9,3 +9,12 @@
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
 }
+@plugin 'daisyui';
+
+body {
+    font-family: "Poppins", sans-serif;
+}
+
+h1 {
+  @apply text-xl lg:text-2xl font-semibold;
+}
