@@ -7,7 +7,7 @@ use App\Http\Controllers\UserController;
 
 Route::get('/', function () {
     if (auth()->check()) {
-        $posts = auth()->user()->usersPosts()->latest()->get();
+        $posts = auth()->user()->usersPosts()->with('author')->latest()->get();
     } else {
         $posts = [];
     }

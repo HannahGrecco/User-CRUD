@@ -34,7 +34,7 @@
             <div class="bg-gray-50 border-1 border-primary rounded p-6 mb-4">
                 <h3 class="font-semibold">{{ $post->title }}</h3>
                 <p>{{ $post->body }}</p>
-                <p>{{$post->user_id}}</p>
+                <p>{{$post->author->name}}</p>
             </div>
         @endforeach
     </div>
