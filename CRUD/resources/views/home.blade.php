@@ -32,9 +32,16 @@
         <h2 class="font-bold mb-4 text-2xl ">All posts</h2>
         @foreach ($posts as $post)
             <div class="bg-gray-50 border-1 border-primary rounded p-6 mb-4">
+                <p>Author: {{$post->author->name}}</p>
+                <hr>
                 <h3 class="font-semibold">{{ $post->title }}</h3>
                 <p>{{ $post->body }}</p>
-                <p>{{$post->author->name}}</p>
+                <p><a href="/edit-post/{{ $post->id }}">Edit</a></p>
+                <form action="/delete-post/{{$post->id}}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button>Delete</button>
+                </form>
             </div>
         @endforeach
     </div>
@@ -80,4 +87,4 @@
      
     @endauth
 
-   
+@endsection
