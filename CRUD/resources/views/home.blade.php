@@ -31,17 +31,20 @@
     <div class="bg-gray-100 flex flex-col p-8 mb-4" >
         <h2 class="font-bold mb-4 text-2xl ">All posts</h2>
         @foreach ($posts as $post)
-            <div class="bg-gray-50 border-1 border-primary rounded p-6 mb-4">
+            <div class="bg-gray-50 border-1 border-primary rounded p-6 mb-4 shadow-lg">
                 <p>Author: {{$post->author->name}}</p>
-                <hr>
-                <h3 class="font-semibold">{{ $post->title }}</h3>
+
+                <h3 class="font-semibold text-">{{ $post->title }}</h3>
                 <p>{{ $post->body }}</p>
-                <p><a href="/edit-post/{{ $post->id }}">Edit</a></p>
-                <form action="/delete-post/{{$post->id}}" method="POST">
+                <div class="flex flex-row space-x-3 justify-end items-center">
+                    <p class="btn btn-primary"><a href="/edit-post/{{ $post->id }}">Edit</a></p>
+                    <form action="/delete-post/{{$post->id}}" method="POST">
                     @csrf
                     @method('DELETE')
-                    <button>Delete</button>
-                </form>
+                    <button class="btn btn-error">Delete</button>
+                    </form>
+                </div>
+                
             </div>
         @endforeach
     </div>
